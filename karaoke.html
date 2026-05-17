@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi Page Website</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+    }
+
+    /* Navbar */
+    nav {
+      background: #333;
+      padding: 15px 30px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00bcd4;
+    }
+
+    /* Page Content */
+    .page {
+      display: none;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    p {
+      color: #666;
+      font-size: 18px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="navbar">
+      <div class="logo">Karaoke</div>
+
+      <ul class="nav-links">
+        <li><a href="#" onclick="showPage('home')">Home</a></li>
+        <li><a href="#" onclick="showPage('about')">Scheduling</a></li>
+        <li><a href="#" onclick="showPage('contact')">Song list</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Page -->
+  <section id="home" class="page active">
+    <h1>Home Page</h1>
+    <p>Join us for a laid-back karaoke meetup where everyone's welcome.
+      Come solo,bring friends, or meet new people over music, laughs, 
+      and unforgettable performances.</p>
+    </section>
+
+  <!-- About Page -->
+  <section id="about" class="page">
+    <h1>Scheduling</h1>
+    <p>Sunsets</p>
+  </section>
+
+  <!-- Contact Page -->
+  <section id="contact" class="page">
+    <h1>Song list</h1>
+    <p>Songs play upon request</p>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    function showPage(pageId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => {
+        page.classList.remove('active');
+      });
+
+      // Show selected page
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
